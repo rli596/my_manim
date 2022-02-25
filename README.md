@@ -8,3 +8,5 @@ My interests are mainly in mathematical physics but somehow all the animations I
 * Assorted tester animations
 
 I hope you have fun testing these out!
+
+Accompanying explanations for these animations can be found at my website, https://rl596.user.srcf.net/.
