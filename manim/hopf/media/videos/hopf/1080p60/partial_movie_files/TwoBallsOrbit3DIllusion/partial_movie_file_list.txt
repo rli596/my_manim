@@ -1,2 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/Users/rickyli/misc_projects/manim/hopf/media/videos/hopf/1080p60/partial_movie_files/TwoBallsOrbit3DIllusion/1094259586_1389185530_2416545946.mp4'

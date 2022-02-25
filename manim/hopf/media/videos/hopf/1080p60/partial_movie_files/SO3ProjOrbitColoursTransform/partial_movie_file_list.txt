@@ -1,7 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/Users/rickyli/misc_projects/manim/hopf/media/videos/hopf/1080p60/partial_movie_files/SO3ProjOrbitColoursTransform/1658145159_4120320557_2826333912.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/hopf/media/videos/hopf/1080p60/partial_movie_files/SO3ProjOrbitColoursTransform/3337571549_789726159_1582707382.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/hopf/media/videos/hopf/1080p60/partial_movie_files/SO3ProjOrbitColoursTransform/940053559_57376586_3948013666.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/hopf/media/videos/hopf/1080p60/partial_movie_files/SO3ProjOrbitColoursTransform/3090266231_4244410318_2175097569.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/hopf/media/videos/hopf/1080p60/partial_movie_files/SO3ProjOrbitColoursTransform/1488162156_57376586_2762032354.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/hopf/media/videos/hopf/1080p60/partial_movie_files/SO3ProjOrbitColoursTransform/1554166535_3193214586_2629680819.mp4'

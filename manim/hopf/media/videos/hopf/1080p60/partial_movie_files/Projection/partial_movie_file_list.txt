@@ -1,9 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/Users/rickyli/misc_projects/manim/hopf/media/videos/hopf/1080p60/partial_movie_files/Projection/892888671_1997265346_1528890276.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/hopf/media/videos/hopf/1080p60/partial_movie_files/Projection/1172987166_1969402575_3059001047.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/hopf/media/videos/hopf/1080p60/partial_movie_files/Projection/2136379533_3851840200_2921690099.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/hopf/media/videos/hopf/1080p60/partial_movie_files/Projection/3017363159_3252986188_2921690099.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/hopf/media/videos/hopf/1080p60/partial_movie_files/Projection/1652416048_1299336382_1774463788.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/hopf/media/videos/hopf/1080p60/partial_movie_files/Projection/1216598254_2831183081_340244528.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/hopf/media/videos/hopf/1080p60/partial_movie_files/Projection/1840648442_3778596913_1185357550.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/hopf/media/videos/hopf/1080p60/partial_movie_files/Projection/1871942846_2699264187_4233766770.mp4'
