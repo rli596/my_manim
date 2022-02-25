@@ -1,0 +1,11 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/advanced_eg/480p15/partial_movie_files/OpeningManim/3163782288_4282031871_528311584.mp4'
+file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/advanced_eg/480p15/partial_movie_files/OpeningManim/2201830969_398514950_582402368.mp4'
+file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/advanced_eg/480p15/partial_movie_files/OpeningManim/2201830969_387693045_58310050.mp4'
+file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/advanced_eg/480p15/partial_movie_files/OpeningManim/2201830969_398514950_2002111725.mp4'
+file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/advanced_eg/480p15/partial_movie_files/OpeningManim/2201830969_194253888_1547598595.mp4'
+file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/advanced_eg/480p15/partial_movie_files/OpeningManim/2201830969_398514950_1018433075.mp4'
+file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/advanced_eg/480p15/partial_movie_files/OpeningManim/2201830969_1121196622_3520040256.mp4'
+file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/advanced_eg/480p15/partial_movie_files/OpeningManim/2201830969_398514950_2618033615.mp4'
+file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/advanced_eg/480p15/partial_movie_files/OpeningManim/2201830969_1328649112_2999310508.mp4'
+file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/advanced_eg/480p15/partial_movie_files/OpeningManim/2201830969_398514950_831060964.mp4'

@@ -1,0 +1,78 @@
+Some questions.
+
+Why animations? What can animations do that chalk and board can't?
+
+A chalk and board lecture is a function of time. It has the data of a piecewise
+smooth curve, gamma:C -> R^2, together with a set valued function of time, 
+S[gamma]:C -> P(R^2), with C = [a,b], defined S[gamma](t) = {gamma(tau) | a < tau < t}.
+Alternatively, we can define gamma_T:[a,T] -> R^2. Then S[gamma](t) = Im(gamma_t).
+
+This assumes an infinite blackboard and no erasure. This is nice as with no
+erasure, the data from S is the same as that from gamma. But from an
+informational point of view, erasure does not give us information. We can see it
+as a way of turning a finite blackboard into an infinite one. 
+
+There is also an audio stream. Simplifying, this is a function taking time to a 
+subset of R bounded below by the minimum amplitude detectable by a human and
+bounded above by an amplitude that could rupture your eardrum. This changes less
+going from a real life chalkboard lecture to a video, it is mostly visually that
+we get far greater control in animation. We can use audio cues which is a bit
+more natural in video than in real life.
+
+We can take the 'notes' of the lecture to be S[gamma](b). This is strictly less
+information as we lose the time dependence. With text, we lose less as there is
+a standard way of interpreting static text which agrees with the time dependence
+of text in the lecture. But with diagrams, we can lose more.
+
+What new capabilities does animation give? 
+
+We can list a few features of animation. It is easy to add colour, more so than 
+in chalk talks. They are exact, which in some contexts is not important, and in 
+other contexts is very important.
+
+But most importantly, there is far more control over the visual data-stream. A
+chalk talk is essentially a 1-dimensional stream of data. An animation image (a 
+static one) is a 'colour valued matrix', or alternatively can be viewed as a map
+from a pixel location to a colour. Then, an animation is a matrix valued function
+of time, or a colour valued function of time and pixel location. Then if there
+are N pixels on the screen, we now have an N dimensional stream of data, with N 
+on the order of a million on current displays. 
+
+E.g. complex maps. On chalk, can draw pointwise transformations. But with
+animation, can make sets of points move. This allows faster understanding of how
+a cx transformation acts in general on points. I think animations get maps 
+across better than chalk can.
+
+E.g. algebra. Despite the great utility in transformations for building
+intuition, we can't use pictures and graphs alone to prove results rigorously.
+But we can see algebraic manipulations as transformations of equations!
+
+Note: a good enough imagination is an acceptable substitute for diagrams
+(static or otherwise) and animations. But animations are a nice way to visualise.
+
+
+What are the limitations of animation and visualisation? What are the capabilities?
+
+1d: easy. boring.
+2d: sweet spot of as much info as possible without being confusing
+3d: still possible, since we have so much intuition of turning 2d projections
+into 3d objects in our heads
+4d: pretty tricky
+>5d: good luck
+
+Another limitation is dealing with infinities. Infinite processes are impossible
+to compute. So for example if considering a map from the complex numbers to the
+complex numbers, we can restrict to a compact subset on which the interesting
+behaviour happens. Thankfully, if there is some compact subset, then we can 
+always fit it onto a screen using rescaling. 
+
+E.g. the Mandelbrot set. With F(z) = z**2 + c, we know that if |c| > 2, then z_n
+goes to infinity. E.g. 2 Dynamical systems. If we show that there is a basin of
+attraction, need only show on the basis of attraction. E.g. 3 Linear maps. These
+extend linearly, so can find behaviour using a basis, or perhaps a parallelogram.
+
+Alternatively, exploit periodicity. Here we essentially quotient out to again
+get a compact set.
+
+Also problems when getting infinitely small, dual problem to infinitely large.
+Area of numerical analysis.

@@ -1,0 +1,9 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/stereog_proj/480p15/partial_movie_files/Stereographic1/26775689_4152247334_1025954430.mp4'
+file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/stereog_proj/480p15/partial_movie_files/Stereographic1/343794008_3493041802_1427947627.mp4'
+file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/stereog_proj/480p15/partial_movie_files/Stereographic1/343794008_1523494239_1752937802.mp4'
+file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/stereog_proj/480p15/partial_movie_files/Stereographic1/343794008_3493041802_1946087766.mp4'
+file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/stereog_proj/480p15/partial_movie_files/Stereographic1/343794008_1933266933_1279942096.mp4'
+file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/stereog_proj/480p15/partial_movie_files/Stereographic1/343794008_3493041802_787689382.mp4'
+file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/stereog_proj/480p15/partial_movie_files/Stereographic1/343794008_1326803727_1492038333.mp4'
+file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/stereog_proj/480p15/partial_movie_files/Stereographic1/343794008_3493041802_2538193344.mp4'

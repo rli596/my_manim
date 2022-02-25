@@ -1,0 +1,2 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/rickyli/misc_projects/manim/lie_algebra/media/videos/lie_algebra/1080p60/partial_movie_files/SO3_push_one_anim/1263119748_1969545115_3363330954.mp4'
