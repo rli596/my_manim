@@ -6,4 +6,5 @@ My interests are mainly in mathematical physics but somehow all the animations I
 * The Hopf fibration
 * The Lorentz and Möbius groups
 * Assorted tester animations
+
 I hope you have fun testing these out!
