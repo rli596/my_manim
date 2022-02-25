@@ -1,5 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/Users/rickyli/misc_projects/manim/lorentz/media/videos/lorentz/480p15/partial_movie_files/ConformalTransformationCx/2579171622_2976454628_3871055573.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/lorentz/media/videos/lorentz/480p15/partial_movie_files/ConformalTransformationCx/2711614048_3808210236_3871055573.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/lorentz/media/videos/lorentz/480p15/partial_movie_files/ConformalTransformationCx/2711614048_3005866945_3871055573.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/lorentz/media/videos/lorentz/480p15/partial_movie_files/ConformalTransformationCx/2711614048_2839631542_395939666.mp4'

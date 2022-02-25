@@ -1,7 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/stereog_proj/480p15/partial_movie_files/StereographicAtlas/26775689_3619784803_44788892.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/stereog_proj/480p15/partial_movie_files/StereographicAtlas/343794008_4027585998_44788892.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/stereog_proj/480p15/partial_movie_files/StereographicAtlas/343794008_419817129_4056247763.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/stereog_proj/480p15/partial_movie_files/StereographicAtlas/343794008_1003740161_4056247763.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/stereog_proj/480p15/partial_movie_files/StereographicAtlas/343794008_1162951254_4056247763.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/stereog_proj/480p15/partial_movie_files/StereographicAtlas/343794008_2972970182_44788892.mp4'

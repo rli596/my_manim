@@ -1,5 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/building_blocks/480p15/partial_movie_files/SomeAnimations/3163782288_524160878_1793580042.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/building_blocks/480p15/partial_movie_files/SomeAnimations/2201830969_4243711923_1793580042.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/building_blocks/480p15/partial_movie_files/SomeAnimations/2201830969_798163602_1793580042.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/building_blocks/480p15/partial_movie_files/SomeAnimations/2201830969_2148686299_4101073582.mp4'

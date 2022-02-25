@@ -1,7 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/Users/rickyli/misc_projects/manim/lie_algebra/media/videos/lie_algebra/1080p60/partial_movie_files/SO3_act_with_z_rot/2534469338_1727345963_1840079957.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/lie_algebra/media/videos/lie_algebra/1080p60/partial_movie_files/SO3_act_with_z_rot/3658908978_1178402551_1840079957.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/lie_algebra/media/videos/lie_algebra/1080p60/partial_movie_files/SO3_act_with_z_rot/3658908978_3863506025_1840079957.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/lie_algebra/media/videos/lie_algebra/1080p60/partial_movie_files/SO3_act_with_z_rot/3658908978_2598982861_1840079957.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/lie_algebra/media/videos/lie_algebra/1080p60/partial_movie_files/SO3_act_with_z_rot/3658908978_3001775912_1840079957.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/lie_algebra/media/videos/lie_algebra/1080p60/partial_movie_files/SO3_act_with_z_rot/3658908978_2710642158_1840079957.mp4'

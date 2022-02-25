@@ -1,5 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/Users/rickyli/misc_projects/manim/joukowsky/media/videos/joukowsky/480p15/partial_movie_files/Joukowsky/3163782288_2644891098_1639793612.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/joukowsky/media/videos/joukowsky/480p15/partial_movie_files/Joukowsky/2201830969_398514950_1882676180.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/joukowsky/media/videos/joukowsky/480p15/partial_movie_files/Joukowsky/2201830969_1089599470_4059283023.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/joukowsky/media/videos/joukowsky/480p15/partial_movie_files/Joukowsky/2201830969_398514950_166738918.mp4'

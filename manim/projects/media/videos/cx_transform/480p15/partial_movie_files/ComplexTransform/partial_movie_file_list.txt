@@ -1,5 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/cx_transform/480p15/partial_movie_files/ComplexTransform/3163782288_830767038_2013013717.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/cx_transform/480p15/partial_movie_files/ComplexTransform/2201830969_398514950_2741090961.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/cx_transform/480p15/partial_movie_files/ComplexTransform/2201830969_4183387028_602341031.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/project1/media/videos/cx_transform/480p15/partial_movie_files/ComplexTransform/2201830969_398514950_3556800909.mp4'

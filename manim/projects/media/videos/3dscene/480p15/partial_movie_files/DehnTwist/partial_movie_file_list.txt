@@ -1,5 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/Users/rickyli/misc_projects/manim/projects/media/videos/3dscene/480p15/partial_movie_files/DehnTwist/757418455_3860223723_1025954430.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/projects/media/videos/3dscene/480p15/partial_movie_files/DehnTwist/1941489417_3161794563_1469758704.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/projects/media/videos/3dscene/480p15/partial_movie_files/DehnTwist/1941489417_3712226459_1469758704.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/projects/media/videos/3dscene/480p15/partial_movie_files/DehnTwist/1941489417_2091061895_1485063532.mp4'

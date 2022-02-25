@@ -1,7 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/Users/rickyli/misc_projects/manim/projects/media/videos/3dscene/480p15/partial_movie_files/RotateCylinder/126684412_3492539587_1005674684.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/projects/media/videos/3dscene/480p15/partial_movie_files/RotateCylinder/1808939391_3155417466_1005674684.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/projects/media/videos/3dscene/480p15/partial_movie_files/RotateCylinder/1808939391_289538421_1005674684.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/projects/media/videos/3dscene/480p15/partial_movie_files/RotateCylinder/1808939391_1747620517_1005674684.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/projects/media/videos/3dscene/480p15/partial_movie_files/RotateCylinder/1808939391_1923969427_1005674684.mp4'
-file 'file:/Users/rickyli/misc_projects/manim/projects/media/videos/3dscene/480p15/partial_movie_files/RotateCylinder/1808939391_877754095_1005674684.mp4'
