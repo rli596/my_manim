@@ -131,3 +131,5 @@ dmypy.json
 # Media 
 *.mp4
 *.gif
+*.png
+*.txt
