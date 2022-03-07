@@ -78,6 +78,8 @@ def embedded_torus(u,v):
     v1 = R * np.array([np.cos(u), np.sin(u), 0])
     v2 = r * ( np.cos(v) * np.array([np.cos(u), np.sin(u), 0] + np.sin(v) * np.array([0, 0, 1])))
     x = v1 + v2
+    # alternatively,
+    x = np.array([np.cos(u)*(R + r * np.cos(v)), np.sin(u) * (R + r * np.cos(v)), r * np.sin(v)])
     return x
 
 # For transformations
@@ -139,12 +141,64 @@ def projective_celestial_action(x, Lambda):
     L_x_unscaled = np.dot(Lambda, x)
     L_x = L_x_unscaled / tl_magnitude
     return L_x
+
+def torus_to_4_vec(y):
+    '''
+    Parameters
+    ----------
+        y (array): 3d point on a torus
+    Returns
+    -------
+        x (array): corresponding 2,2 vector
+    '''
+    theta_1 = np.angle(complex(y[0], y[1]))
+    R = 2 # This is bad practice, should probably globally define the torus parameters.
+    y_1 = y - np.array([R * np.cos(theta_1), R * np.sin(theta_1), 0])
+    Rot_mat = np.array([[np.cos(-theta_1), -np.sin(-theta_1), 0],
+                       [np.sin(-theta_1), np.cos(-theta_1), 0],
+                       [0, 0, 1]]) # Rotates y_1 so that it is in x-z plane
+    y_2 = np.dot(Rot_mat, y_1)
+    theta_2 = np.angle(complex(y_2[0], y_2[2]))
+    x = np.array([np.cos(theta_1), np.sin(theta_1), np.cos(theta_2), np.sin(theta_2)])
+    return x
+
+def conformal_transformation(y, Lambda):
+    '''
+    Parameters
+    ----------
+        y (array): 3d point on a torus
+        Lambda (array): Transformation to be applied
+    Returns
+    -------
+        y_dash (array): 3d point on a torus after transformation
+    '''
+    x = torus_to_4_vec(y)
+    L_x = projective_celestial_action(x, Lambda)
+    thetas = null_celestial_torus_to_angle(L_x)
+    y_dash = embedded_torus(thetas[0], thetas[1])
+    return y_dash
+
+def conformal_tfmn_fundamental_polygon(thetas, Lambda):
+    '''
+    Parameters
+    ----------
+        thetas (array): Two angles on torus, or parameters on fundamental polygon
+    Returns
+    -------
+        thetas_dash (array): Transformed angles on torus
+    '''
+    x = angle_to_null_celestial_torus(thetas)
+    L_x = projective_celestial_action(x, Lambda)
+    thetas_dash = null_celestial_torus_to_angle(L_x)
+    return thetas_dash
     
 '''
 Testing
 '''
 if __name__ == "__main__":
-    x = np.array([1, 0, 1, 0])
-    Lambda = expm(J_1 * np.pi/3 - J_2 * np.pi/3) 
-    L_x = projective_celestial_action(x, Lambda)
-    print(L_x)
+
+    thetas = [np.pi/3, np.pi/3]
+    y = embedded_torus(thetas[0], thetas[1])
+    x = torus_to_4_vec(y)
+    print(y)
+    print(x)
