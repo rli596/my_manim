@@ -200,6 +200,59 @@ class ConformalTransformation1_3(ThreeDScene):
                 ApplyPointwiseFunction(lambda x: conformal_transformation_3_1(x, Lambda), stars))
         self.wait(1)
 
+class RigidRotation(ThreeDScene):
+    def construct(self):
+
+        # Camera
+
+        phi = 75
+        theta = 0
+        self.set_camera_orientation(phi = phi*DEGREES, theta = theta*DEGREES)
+        self.camera.set_zoom(3)
+
+        # Mobjects
+        celestial_sphere = Surface(
+            lambda u, v: [np.cos(u) * np.sin(v), np.sin(u) * np.sin(v), np.cos(v)],
+            resolution = (16, 16),
+            u_range = [0, 2 * np.pi],
+            v_range = [0, np.pi],
+            fill_opacity = 0.5
+        ).set_fill_by_checkerboard(PURPLE, PURPLE)
+
+        stars = Mobject1D()
+        star_positions = []
+        n_U = 16
+        n_V = 16
+        for n in range(n_U):
+            for m in range(n_V):
+                U = n / n_U
+                V = m / n_V
+                u = 2 * np.pi * U
+                v = np.arccos(1 - 2 * V)
+                star_positions.append([u, v])
+        stars.add_points(
+            [
+                [np.cos(position[0]) * np.sin(position[1]), 
+                np.sin(position[0]) * np.sin(position[1]),
+                np.cos(position[1])]
+                for position in star_positions
+            ]
+        )
+
+        # Transformations
+
+        '''
+        v = [0, 0, -1]
+        Lambda = vec_to_boost_3(v)
+        '''
+
+        # Animations
+
+        self.add(celestial_sphere, stars)
+        self.play(Rotate(celestial_sphere, angle = np.pi/8, about_point = ORIGIN, rate_func =linear),
+                Rotate(stars, angle = np.pi/8, about_point = ORIGIN, rate_func =linear))
+        self.wait(1)
+
 class MobiusTransformationCx(ThreeDScene):
     def construct(self):
 
