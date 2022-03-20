@@ -32,7 +32,7 @@ class LorentzTransformation1_2(ThreeDScene):
             v_range = [0, 2 * np.pi],
             fill_opacity = 0.5,
             fill_color = GREEN
-        ).set_fill_by_checkerboard(GREEN, YELLOW)
+        ).set_fill_by_checkerboard(RED, RED)
 
         light_cone_top = Surface(
             light_cone,
@@ -41,7 +41,7 @@ class LorentzTransformation1_2(ThreeDScene):
             v_range = [0, 2 * np.pi],
             fill_opacity = 0.5,
             fill_color = GREEN
-        ).set_fill_by_checkerboard(GREEN, YELLOW)
+        ).set_fill_by_checkerboard(BLUE, BLUE)
 
         time_slice = Surface(
             lambda u,v: np.array([u, v, 1]),
@@ -50,12 +50,12 @@ class LorentzTransformation1_2(ThreeDScene):
             v_range = [-3, 3],
             fill_opacity = 0.5,
             fill_color = ORANGE
-        ).set_fill_by_checkerboard(ORANGE, ORANGE)
+        ).set_fill_by_checkerboard(RED, RED)
 
         celestial_circle = ParametricFunction(
             lambda t: np.array([np.cos(t), np.sin(t), 1]),
             t_range = [0, 2 * np.pi],
-            color = RED
+            color = PURPLE
         )
 
         stars = Mobject1D()
@@ -77,9 +77,9 @@ class LorentzTransformation1_2(ThreeDScene):
 
         self.add(light_cone_bottom, time_slice, celestial_circle, stars, light_cone_top)
         
-        self.play(ApplyMatrix(matrix = Lambda, mobject = time_slice),
-        ApplyMatrix(matrix = Lambda, mobject = celestial_circle),
+        self.play(ApplyMatrix(matrix = Lambda, mobject = celestial_circle),
         ApplyMatrix(matrix = Lambda, mobject = light_cone_bottom),
+        ApplyMatrix(matrix = Lambda, mobject = time_slice),
         ApplyMatrix(matrix = Lambda, mobject = light_cone_top),
         ApplyMatrix(matrix = Lambda, mobject = stars))
         self.play(ApplyPointwiseFunction(rescaling_2, celestial_circle),
@@ -92,9 +92,9 @@ class LorentzTransformation1_3(ThreeDScene):
         # Camera
 
         phi = 75
-        theta = 0
+        theta = 15
         self.set_camera_orientation(phi = phi*DEGREES, theta = theta*DEGREES)
-        self.camera.set_zoom(3)
+        self.camera.set_zoom(1.8)
 
         # Mobjects
         celestial_sphere = Surface(
@@ -103,18 +103,18 @@ class LorentzTransformation1_3(ThreeDScene):
             u_range = [0, 2 * np.pi],
             v_range = [0, np.pi],
             fill_opacity = 0.5
-        ).set_fill_by_checkerboard(YELLOW, GREEN)
+        ).set_fill_by_checkerboard(PURPLE, PURPLE)
 
         stars = Mobject1D()
         star_positions = []
-        n_U = 16
-        n_V = 16
+        n_U = 8
+        n_V = 8
         for n in range(n_U):
             for m in range(n_V):
                 U = n / n_U
                 V = m / n_V
                 u = 2 * np.pi * U
-                v = np.arccos(1 - 2 * V)
+                v = np.pi * V
                 star_positions.append([u, v])
         stars.add_points(
             [
@@ -127,7 +127,7 @@ class LorentzTransformation1_3(ThreeDScene):
 
         # Transformations
 
-        v = [0, 0, -1]
+        v = [0, 0, -.8]
         Lambda = vec_to_boost_3(v)
 
         S = expm(SIGMA_Z * complex(0, 2/3 * np.pi))
@@ -138,7 +138,7 @@ class LorentzTransformation1_3(ThreeDScene):
                             [0, 1]])
         L_transl = SL_to_SO(S_transl)
 
-        active_transformation = L_transl
+        active_transformation = Lambda
 
         # Animations
 
@@ -170,8 +170,8 @@ class ConformalTransformation1_3(ThreeDScene):
 
         stars = Mobject1D()
         star_positions = []
-        n_U = 16
-        n_V = 16
+        n_U = 8
+        n_V = 8
         for n in range(n_U):
             for m in range(n_V):
                 U = n / n_U
@@ -221,8 +221,8 @@ class RigidRotation(ThreeDScene):
 
         stars = Mobject1D()
         star_positions = []
-        n_U = 16
-        n_V = 16
+        n_U = 8
+        n_V = 8
         for n in range(n_U):
             for m in range(n_V):
                 U = n / n_U
@@ -261,7 +261,7 @@ class MobiusTransformationCx(ThreeDScene):
         phi = 75
         theta = 0
         self.set_camera_orientation(phi = phi*DEGREES, theta = theta*DEGREES)
-        self.camera.set_zoom(3)
+        self.camera.set_zoom(1.8)
 
         # Mobjects
         eps = 1e-1
@@ -271,18 +271,18 @@ class MobiusTransformationCx(ThreeDScene):
             u_range = [0, 2 * np.pi],
             v_range = [eps, np.pi],
             fill_opacity = 0.5
-        ).set_fill_by_checkerboard(YELLOW, GREEN)
+        ).set_fill_by_checkerboard(PURPLE, PURPLE)
 
         stars = Mobject1D()
         star_positions = []
-        n_U = 16
-        n_V = 16
+        n_U = 8
+        n_V = 8
         for n in range(n_U):
             for m in range(n_V):
                 U = n / n_U
                 V = (m + 1) / n_V
                 u = 2 * np.pi * U
-                v = np.arccos(1 - 2 * V)
+                v = np.pi * V
                 star_positions.append([u, v])
         stars.add_points(
             [
@@ -295,8 +295,8 @@ class MobiusTransformationCx(ThreeDScene):
 
         # Transformations
 
-        S = np.array([[np.exp(-1/2), 0],
-                     [0, np.exp(1/2)]])
+        S = np.array([[np.exp(-0.4), 0],
+                     [0, np.exp(0.4)]])
 
         # Animations
 
@@ -497,13 +497,33 @@ class MobiusMaps(ThreeDScene):
         # manim --quality=l -o<name of output file> lorentz.py MobiusMaps
         # manim --quality=l --flush_cache -ox_boost.mp4 lorentz.py MobiusMaps
 
-class MobiusFlows(Scene):
+class VFieldFlows(Scene):
     def construct(self):
         func_rot = lambda pos: - pos[1] * RIGHT + pos[0] * UP 
         func_dil = lambda pos: pos[0] * RIGHT + pos[1] * UP
         func_lox = lambda pos: (pos[0] - pos[1]) * RIGHT + (pos[0] + pos[1]) * UP
         func_x_rot = lambda pos: (2 * pos[0] * pos[1]) * RIGHT + (1 - pos[0]**2 + pos[1]**2) * UP
-        stream_lines = StreamLines(func_x_rot, stroke_width=1, max_anchors_per_line=30)
-        self.add(stream_lines)
+
+        func_boost = lambda pos: pos[1] * RIGHT + pos[0] * UP
+
+        active_v_field = func_x_rot
+
+        stream_lines = StreamLines(active_v_field,
+                                   x_range=[-3,3,1],
+                                   y_range=[-2,2, 1],
+                                   color=YELLOW,
+                                   stroke_width=3, 
+                                   max_anchors_per_line=10,
+                                   virtual_time=1)
+        # Continuous motion
+        """ self.add(stream_lines)
         stream_lines.start_animation(warm_up=True, flow_speed=1)
-        self.wait(10)
+        self.wait(5) """
+
+        # Streamline creation
+        
+        self.play(stream_lines.create())
+        self.wait()
+        
+
+        

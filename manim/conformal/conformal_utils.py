@@ -108,7 +108,7 @@ def angle_to_null_celestial_torus(thetas):
         x (array): (2,2) vector on celestial torus
     '''
     x = np.array([np.cos(thetas[0]), np.sin(thetas[0]), np.cos(thetas[1]), 
-    np.sin([thetas[1]])])
+    np.sin(thetas[1])])
     return x
 
 def null_celestial_torus_to_angle(x):

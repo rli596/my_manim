@@ -17,7 +17,7 @@ Scenes
 
 class ConformalTransformation(ThreeDScene):
     def construct(self):
-        phi = 75
+        phi = 45
         theta = 0
         self.set_camera_orientation(phi = phi*DEGREES, theta = theta*DEGREES)
 
@@ -29,11 +29,11 @@ class ConformalTransformation(ThreeDScene):
             u_range = (-np.pi, np.pi),
             v_range = (-np.pi, np.pi),
             fill_opacity = 0.5
-        ).set_fill_by_checkerboard(GREEN, YELLOW)
+        ).set_fill_by_checkerboard(PURPLE, PURPLE)
 
         stars = Mobject1D()
         star_angles = []
-        root_num_stars = 12
+        root_num_stars = 9
         for u in np.linspace(-np.pi, np.pi, root_num_stars):
             for v in np.linspace(-np.pi, np.pi, root_num_stars):
                 star_angles.append(np.array([u, v]))
@@ -46,7 +46,7 @@ class ConformalTransformation(ThreeDScene):
 
         # Transformations
 
-        Lambda = expm(K_22)
+        Lambda = expm(K_11)
 
         # Animations
 
@@ -68,11 +68,11 @@ class ConformalTransformationFundPoly(ThreeDScene):
             u_range = (-np.pi, np.pi),
             v_range = (-np.pi, np.pi),
             fill_opacity = 0.5
-        ).set_fill_by_checkerboard(GREEN, YELLOW)
+        ).set_fill_by_checkerboard(PURPLE, PURPLE)
 
         stars = Mobject1D()
         star_angles = []
-        root_num_stars = 12
+        root_num_stars = 17
         for u in np.linspace(-np.pi, np.pi, root_num_stars):
             for v in np.linspace(-np.pi, np.pi, root_num_stars):
                 star_angles.append(np.array([u, v]))
@@ -85,10 +85,11 @@ class ConformalTransformationFundPoly(ThreeDScene):
 
         # Transformations
 
-        Lambda = expm(K_21)
+        Lambda = expm(K_11)
 
         # Animations
 
         self.add(fund_poly, stars)
         self.play(ApplyPointwiseFunction(lambda y: np.pad(conformal_tfmn_fundamental_polygon(y[0:2], Lambda), (0,1)), stars),
+        ApplyPointwiseFunction(lambda y: np.pad(conformal_tfmn_fundamental_polygon(y[0:2], Lambda), (0,1)), fund_poly)
         )
