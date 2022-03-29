@@ -155,9 +155,9 @@ class ConformalTransformation1_3(ThreeDScene):
         # Camera
 
         phi = 75
-        theta = 0
+        theta = 15
         self.set_camera_orientation(phi = phi*DEGREES, theta = theta*DEGREES)
-        self.camera.set_zoom(3)
+        self.camera.set_zoom(1.8)
 
         # Mobjects
         celestial_sphere = Surface(
@@ -166,18 +166,18 @@ class ConformalTransformation1_3(ThreeDScene):
             u_range = [0, 2 * np.pi],
             v_range = [0, np.pi],
             fill_opacity = 0.5
-        ).set_fill_by_checkerboard(YELLOW, GREEN)
+        ).set_fill_by_checkerboard(PURPLE, PURPLE)
 
         stars = Mobject1D()
         star_positions = []
-        n_U = 8
-        n_V = 8
+        n_U = 16
+        n_V = 16
         for n in range(n_U):
             for m in range(n_V):
                 U = n / n_U
                 V = m / n_V
                 u = 2 * np.pi * U
-                v = np.arccos(1 - 2 * V)
+                v = np.pi * V
                 star_positions.append([u, v])
         stars.add_points(
             [
@@ -206,9 +206,9 @@ class RigidRotation(ThreeDScene):
         # Camera
 
         phi = 75
-        theta = 0
+        theta = 15
         self.set_camera_orientation(phi = phi*DEGREES, theta = theta*DEGREES)
-        self.camera.set_zoom(3)
+        self.camera.set_zoom(1.8)
 
         # Mobjects
         celestial_sphere = Surface(
@@ -221,14 +221,14 @@ class RigidRotation(ThreeDScene):
 
         stars = Mobject1D()
         star_positions = []
-        n_U = 8
-        n_V = 8
+        n_U = 16
+        n_V = 16
         for n in range(n_U):
             for m in range(n_V):
                 U = n / n_U
                 V = m / n_V
                 u = 2 * np.pi * U
-                v = np.arccos(1 - 2 * V)
+                v = np.pi * V
                 star_positions.append([u, v])
         stars.add_points(
             [
@@ -259,7 +259,7 @@ class MobiusTransformationCx(ThreeDScene):
         # Camera
 
         phi = 75
-        theta = 0
+        theta = 15
         self.set_camera_orientation(phi = phi*DEGREES, theta = theta*DEGREES)
         self.camera.set_zoom(1.8)
 
@@ -486,10 +486,11 @@ class MobiusMaps(ThreeDScene):
         R_y = expm(r_y/2 * np.pi/2)
         R_z = expm(r_z/2 * np.pi/2)
 
-        active_matrix = B_x
+        active_matrix = B_z
 
         # Animations
-        self.play(ApplyPointwiseFunction(real_transformation_from_matrix(active_matrix), cx_plane),
+        self.play(FadeIn(stars))
+        self.play(#ApplyPointwiseFunction(real_transformation_from_matrix(active_matrix), cx_plane),
         ApplyPointwiseFunction(real_transformation_from_matrix(active_matrix), stars),)
         self.wait(1)
 
