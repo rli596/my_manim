@@ -275,8 +275,8 @@ class MobiusTransformationCx(ThreeDScene):
 
         stars = Mobject1D()
         star_positions = []
-        n_U = 8
-        n_V = 8
+        n_U = 16
+        n_V = 16
         for n in range(n_U):
             for m in range(n_V):
                 U = n / n_U
@@ -296,7 +296,7 @@ class MobiusTransformationCx(ThreeDScene):
         # Transformations
 
         S = np.array([[np.exp(-0.4), 0],
-                     [0, np.exp(0.4)]])
+                     [0, np.exp(+0.4)]])
 
         # Animations
 
@@ -305,8 +305,8 @@ class MobiusTransformationCx(ThreeDScene):
                 ApplyPointwiseFunction(stereographic_projection, stars))
         self.play(ApplyPointwiseFunction(real_transformation_from_matrix(S), celestial_sphere),
                 ApplyPointwiseFunction(real_transformation_from_matrix(S), stars))
-        self.play(ApplyPointwiseFunction(stereographic_inverse, celestial_sphere),
-                ApplyPointwiseFunction(stereographic_inverse, stars))
+        """ self.play(ApplyPointwiseFunction(stereographic_inverse, celestial_sphere),
+                ApplyPointwiseFunction(stereographic_inverse, stars)) """
         self.wait(1)
 
 class ConformalTransformationMobius(ThreeDScene):
@@ -507,11 +507,11 @@ class VFieldFlows(Scene):
 
         func_boost = lambda pos: pos[1] * RIGHT + pos[0] * UP
 
-        active_v_field = func_x_rot
+        active_v_field = func_boost
 
         stream_lines = StreamLines(active_v_field,
-                                   x_range=[-3,3,1],
-                                   y_range=[-2,2, 1],
+                                   x_range=[-6,6,1],
+                                   y_range=[-4,4, 1],
                                    color=YELLOW,
                                    stroke_width=3, 
                                    max_anchors_per_line=10,
