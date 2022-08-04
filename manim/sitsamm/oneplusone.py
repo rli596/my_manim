@@ -8,12 +8,8 @@
 Dependencies
 '''
 
-from turtle import left
-from venv import create
 from manim import *
 from numpy import number
-# from sympy import hyper
-# from sklearn.preprocessing import scale
 from lorentz_utils import *
 
 '''
