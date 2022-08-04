@@ -8,10 +8,8 @@
 Dependencies
 '''
 
-from venv import create
 from manim import *
 from numpy import number
-# from sklearn.preprocessing import scale
 from lorentz_utils import *
 
 '''
@@ -164,7 +162,7 @@ class CelestialCircle(ThreeDScene):
         ## phi = 75: skew
         ## phi = 0: top_down
         ## phi = 90: straight_on
-        phi = 0
+        phi = 75
         theta = -90
         self.set_camera_orientation(phi = phi*DEGREES, theta = theta*DEGREES)
 
