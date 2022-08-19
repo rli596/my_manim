@@ -79,9 +79,14 @@ def param_klein_bottle(u, v):
 
 class ThreeDGaussianPlot(ThreeDScene):
     def construct(self):
-        resolution_fa = 42
+
+        # Camera
+
         self.set_camera_orientation(phi=75 * DEGREES, theta=-30 * DEGREES)
 
+        # Mobjects
+
+        resolution_fa = 42
         gauss_plane = Surface(
             param_gauss,
             resolution=(resolution_fa, resolution_fa),
@@ -93,6 +98,9 @@ class ThreeDGaussianPlot(ThreeDScene):
         gauss_plane.set_style(fill_opacity=1,stroke_color=GREEN)
         gauss_plane.set_fill_by_checkerboard(ORANGE, BLUE, opacity=0.5)
         axes = ThreeDAxes()
+
+        # Animations
+
         self.add(axes,gauss_plane)
         self.begin_3dillusion_camera_rotation(rate=2)
         self.wait(PI/2)
@@ -100,9 +108,14 @@ class ThreeDGaussianPlot(ThreeDScene):
 
 class ThreeDTorusPlot(ThreeDScene):
     def construct(self):
-        resolution_fa = 42
+
+        # Camera
+
         self.set_camera_orientation(phi=75 * DEGREES, theta=-60 * DEGREES)
 
+        # Mobjects
+
+        resolution_fa = 42
         torus = Surface(
             param_torus,
             resolution=(resolution_fa, resolution_fa),
@@ -113,13 +126,20 @@ class ThreeDTorusPlot(ThreeDScene):
         # torus.scale(2, about_point=ORIGIN)
         torus.set_fill_by_checkerboard(ORANGE, BLUE, opacity=0.5)
         axes = ThreeDAxes()
+
+        # Animations
+
         self.play(Create(torus))
 
 class ThreeDTorusAnim(ThreeDScene):
     def construct(self):
-        resolution_fa = 42
+
+        # Camera
+        
         self.set_camera_orientation(phi=75 * DEGREES, theta=-60 * DEGREES)
 
+        # Mobjects
+        resolution_fa = 42
         torus = Surface(
             param_torus,
             resolution=(resolution_fa, resolution_fa),
@@ -138,6 +158,9 @@ class ThreeDTorusAnim(ThreeDScene):
         torus.set_fill_by_checkerboard(ORANGE, BLUE, opacity=0.5)
         cylinder.set_fill_by_checkerboard(ORANGE, BLUE, opacity=0.5)
         axes = ThreeDAxes()
+
+        # Animations
+
         self.add(axes, torus)
         self.play(
             Transform(torus, cylinder)
@@ -145,12 +168,13 @@ class ThreeDTorusAnim(ThreeDScene):
 
 class DehnTwist(ThreeDScene):
     def construct(self):
-        # Set constants
-        resolution_fa = 32 # 42 for nice resolution
+
+        # Camera 
         self.set_camera_orientation(phi=75 * DEGREES, theta=-60 * DEGREES)
 
-        # Load surfaces
-            # Static
+        # Mobjects
+        
+        resolution_fa = 32 # 42 for nice resolution
 
         torus = Surface(
             param_torus,
@@ -180,7 +204,6 @@ class DehnTwist(ThreeDScene):
             v_range=[-np.pi, np.pi],
         )
 
-            # Animated
         twist_surface = Surface(
             param_torus,
             resolution=(resolution_fa, resolution_fa),
@@ -194,6 +217,8 @@ class DehnTwist(ThreeDScene):
         for surface in surfaces:
             surface.set_fill_by_checkerboard(ORANGE, BLUE, opacity=1)
 
+        # Animations
+
         axes = ThreeDAxes()
         self.add(axes, twist_surface)
         self.play(Transform(twist_surface, cylinder, run_time=3))
@@ -203,11 +228,16 @@ class DehnTwist(ThreeDScene):
 
 class KleinBottle(ThreeDScene):
     def construct(self):
+
+        # Camera
+
+        self.set_camera_orientation(phi=phi_degs * DEGREES, theta=theta_degs * DEGREES)
+
+        # Mobjects
+
         resolution_fa = 16
         phi_degs = 45
         theta_degs = 45
-
-        self.set_camera_orientation(phi=phi_degs * DEGREES, theta=theta_degs * DEGREES)
 
         kb = Surface(
             param_klein_bottle,
@@ -215,6 +245,8 @@ class KleinBottle(ThreeDScene):
             u_range=[0, np.pi],
             v_range=[0, 2*np.pi],
         )
+
+        # Animations
 
         # torus.scale(2, about_point=ORIGIN)
         kb.set_fill_by_checkerboard(ORANGE, BLUE, opacity=0.5)
@@ -227,11 +259,17 @@ class KleinBottle(ThreeDScene):
 
 class RotateCylinder(ThreeDScene):
     def construct(self):
-        resolution_fa = 12
+
+        # Camera
+
         phi_degs = 75
         theta_degs = 30
         self.set_camera_orientation(phi = phi_degs * DEGREES, 
         theta = theta_degs * DEGREES)
+
+        # Mobjects
+
+        resolution_fa = 12
         
         twisted_cyls = {}
 
@@ -253,6 +291,8 @@ class RotateCylinder(ThreeDScene):
             )
 
         self.add(anim_surface)
+
+        # Animations
         
         for t in ts:
             self.play(Transform(anim_surface, twisted_cyls[t]),
