@@ -1,3 +1,5 @@
+# Example taken from manim.ce examples,which I played around with a bit.
+
 from manim import *
 
 class OpeningManim(Scene):
