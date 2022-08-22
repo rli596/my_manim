@@ -20,24 +20,25 @@ Scenes
 class LorentzTransformation1_2(ThreeDScene):
     def construct(self):
         phi = 75
-        theta = 0
+        theta = -90
         self.set_camera_orientation(phi = phi*DEGREES, theta = theta*DEGREES)
+        self.camera.set_zoom(1.5)
 
         # Mobjects
 
         light_cone_bottom = Surface(
             light_cone,
-            resolution = (16, 16),
+            resolution = (1, 12),
             u_range = [0,1],
             v_range = [0, 2 * np.pi],
             fill_opacity = 0.5,
             fill_color = GREEN
-        ).set_fill_by_checkerboard(RED, RED)
+        ).set_fill_by_checkerboard(BLUE, BLUE)
 
         light_cone_top = Surface(
             light_cone,
-            resolution = (16, 16),
-            u_range = [1,4],
+            resolution = (4, 12),
+            u_range = [1,5],
             v_range = [0, 2 * np.pi],
             fill_opacity = 0.5,
             fill_color = GREEN
@@ -58,6 +59,8 @@ class LorentzTransformation1_2(ThreeDScene):
             color = PURPLE
         )
 
+        axes = ThreeDAxes(x_range = (0,1,1), y_range = (0,1,1), z_range = (0,1,1)).set_x(-.0).set_y(-.0).set_z(-.0)
+
         stars = Mobject1D()
         n_stars = 12
         theta = 2 * np.pi / n_stars
@@ -70,21 +73,25 @@ class LorentzTransformation1_2(ThreeDScene):
 
         # Transformations
 
-        v = np.array([-1/3, 2/3])
+        v = np.array([1/2, 0])
         Lambda = vec_to_boost_2(v)
+        Inv_Lambda = vec_to_boost_2(-v)
 
         # Animations
 
-        self.add(light_cone_bottom, time_slice, celestial_circle, stars, light_cone_top)
+        self.add(light_cone_bottom, celestial_circle, stars, light_cone_top)
         
         self.play(ApplyMatrix(matrix = Lambda, mobject = celestial_circle),
         ApplyMatrix(matrix = Lambda, mobject = light_cone_bottom),
-        ApplyMatrix(matrix = Lambda, mobject = time_slice),
         ApplyMatrix(matrix = Lambda, mobject = light_cone_top),
         ApplyMatrix(matrix = Lambda, mobject = stars))
+
         self.play(ApplyPointwiseFunction(rescaling_2, celestial_circle),
-        ApplyPointwiseFunction(rescaling_2, stars), 
-        ApplyPointwiseFunction(lambda X: [X[0], X[1], 1], time_slice))
+        ApplyPointwiseFunction(rescaling_2, stars))
+
+        self.play(ApplyMatrix(matrix = Inv_Lambda, mobject = light_cone_bottom),
+        ApplyMatrix(matrix = Inv_Lambda, mobject = light_cone_top),
+        ApplyPointwiseFunction(lambda x: conformal_transformation_1_2(x, Inv_Lambda), stars))
 
 class LorentzTransformation1_3(ThreeDScene):
     def construct(self):
@@ -127,8 +134,9 @@ class LorentzTransformation1_3(ThreeDScene):
 
         # Transformations
 
-        v = [0, 0, -.8]
+        v = np.array([0, 0, -.8])
         Lambda = vec_to_boost_3(v)
+        Inv_Lambda = vec_to_boost_3(-v)
 
         S = expm(SIGMA_Z * complex(0, 2/3 * np.pi))
         L_S = SL_to_SO(S)
@@ -147,7 +155,8 @@ class LorentzTransformation1_3(ThreeDScene):
                 ApplyPointwiseFunction(lambda x: lorentz_transform_spacelike_proj(x, active_transformation), stars))
         self.play(ApplyPointwiseFunction(rescaling_3, celestial_sphere),
                 ApplyPointwiseFunction(rescaling_3, stars))
-        self.wait(1)
+        self.play(ApplyPointwiseFunction(lambda x: conformal_transformation_3_1(x, Inv_Lambda), celestial_sphere),
+                ApplyPointwiseFunction(lambda x: conformal_transformation_3_1(x, Inv_Lambda), stars))
 
 class ConformalTransformation1_3(ThreeDScene):
     def construct(self):
@@ -155,38 +164,31 @@ class ConformalTransformation1_3(ThreeDScene):
         # Camera
 
         phi = 75
-        theta = 15
+        theta = -90
         self.set_camera_orientation(phi = phi*DEGREES, theta = theta*DEGREES)
-        self.camera.set_zoom(1.8)
+        self.camera.set_zoom(2)
 
         # Mobjects
         celestial_sphere = Surface(
             lambda u, v: [np.cos(u) * np.sin(v), np.sin(u) * np.sin(v), np.cos(v)],
-            resolution = (16, 16),
+            resolution = (12, 12),
             u_range = [0, 2 * np.pi],
             v_range = [0, np.pi],
             fill_opacity = 0.5
         ).set_fill_by_checkerboard(PURPLE, PURPLE)
 
         stars = Mobject1D()
-        star_positions = []
-        n_U = 16
-        n_V = 16
-        for n in range(n_U):
-            for m in range(n_V):
-                U = n / n_U
-                V = m / n_V
-                u = 2 * np.pi * U
-                v = np.pi * V
-                star_positions.append([u, v])
-        stars.add_points(
-            [
-                [np.cos(position[0]) * np.sin(position[1]), 
-                np.sin(position[0]) * np.sin(position[1]),
-                np.cos(position[1])]
-                for position in star_positions
-            ]
-        )
+        n_phis = 6
+        n_thetas = 13
+        phis = np.linspace(0, 2 * np.pi, n_phis, endpoint=False)
+        thetas = np.linspace(np.pi, 0, n_thetas, endpoint=True)
+        
+        for phi in phis:
+            for theta in thetas:
+                x = np.cos(phi) * np.sin(theta)
+                y = np.sin(phi) * np.sin(theta)
+                z = np.cos(theta)
+                stars.add_points([np.array([x, y, z])])
 
         # Transformations
 
@@ -195,10 +197,17 @@ class ConformalTransformation1_3(ThreeDScene):
 
         # Animations
 
-        self.add(celestial_sphere, stars)
+        self.play(FadeIn(celestial_sphere))
+        self.add(stars)
+        self.wait()
+
         self.play(ApplyPointwiseFunction(lambda x: conformal_transformation_3_1(x, Lambda), celestial_sphere),
                 ApplyPointwiseFunction(lambda x: conformal_transformation_3_1(x, Lambda), stars))
         self.wait(1)
+
+        self.remove(stars)
+        self.play(FadeOut(celestial_sphere))
+        
 
 class RigidRotation(ThreeDScene):
     def construct(self):
