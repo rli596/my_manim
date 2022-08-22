@@ -123,6 +123,20 @@ def rescaling_3(x):
     X = x/t
     return X
 
+def conformal_transformation_1_2(x, Lambda):
+    '''
+    Parameters
+    ----------
+        x (array): null, positive directed 3-vector
+        Lambda (array): 3x3 matrix of Lorentz transformation
+    Returns
+    -------
+        lambda_L_x (array): spacelike part of Lorentz transformed null 3-vector rescaled to unit time
+    '''
+    L_x = np.dot(Lambda, x)
+    lambda_L_x = L_x/L_x[-1]
+    return lambda_L_x
+
 def conformal_transformation_3_1(x, Lambda):
     '''
     Parameters
