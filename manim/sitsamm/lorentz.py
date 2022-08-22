@@ -150,38 +150,31 @@ class ConformalTransformation1_3(ThreeDScene):
         # Camera
 
         phi = 75
-        theta = 15
+        theta = -90
         self.set_camera_orientation(phi = phi*DEGREES, theta = theta*DEGREES)
-        self.camera.set_zoom(1.8)
+        self.camera.set_zoom(2)
 
         # Mobjects
         celestial_sphere = Surface(
             lambda u, v: [np.cos(u) * np.sin(v), np.sin(u) * np.sin(v), np.cos(v)],
-            resolution = (16, 16),
+            resolution = (12, 12),
             u_range = [0, 2 * np.pi],
             v_range = [0, np.pi],
             fill_opacity = 0.5
         ).set_fill_by_checkerboard(PURPLE, PURPLE)
 
         stars = Mobject1D()
-        star_positions = []
-        n_U = 16
-        n_V = 16
-        for n in range(n_U):
-            for m in range(n_V):
-                U = n / n_U
-                V = m / n_V
-                u = 2 * np.pi * U
-                v = np.pi * V
-                star_positions.append([u, v])
-        stars.add_points(
-            [
-                [np.cos(position[0]) * np.sin(position[1]), 
-                np.sin(position[0]) * np.sin(position[1]),
-                np.cos(position[1])]
-                for position in star_positions
-            ]
-        )
+        n_phis = 6
+        n_thetas = 13
+        phis = np.linspace(0, 2 * np.pi, n_phis, endpoint=False)
+        thetas = np.linspace(np.pi, 0, n_thetas, endpoint=True)
+        
+        for phi in phis:
+            for theta in thetas:
+                x = np.cos(phi) * np.sin(theta)
+                y = np.sin(phi) * np.sin(theta)
+                z = np.cos(theta)
+                stars.add_points([np.array([x, y, z])])
 
         # Transformations
 
@@ -190,10 +183,16 @@ class ConformalTransformation1_3(ThreeDScene):
 
         # Animations
 
-        self.add(celestial_sphere, stars)
+        self.play(FadeIn(celestial_sphere))
+        self.add(stars)
+        self.wait()
+
         self.play(ApplyPointwiseFunction(lambda x: conformal_transformation_3_1(x, Lambda), celestial_sphere),
                 ApplyPointwiseFunction(lambda x: conformal_transformation_3_1(x, Lambda), stars))
         self.wait(1)
+
+        self.remove(stars)
+        self.play(FadeOut(celestial_sphere))
 
 class RigidRotation(ThreeDScene):
     def construct(self):
@@ -201,52 +200,44 @@ class RigidRotation(ThreeDScene):
         # Camera
 
         phi = 75
-        theta = 15
+        theta = -90
         self.set_camera_orientation(phi = phi*DEGREES, theta = theta*DEGREES)
-        self.camera.set_zoom(1.8)
+        self.camera.set_zoom(2)
 
         # Mobjects
         celestial_sphere = Surface(
             lambda u, v: [np.cos(u) * np.sin(v), np.sin(u) * np.sin(v), np.cos(v)],
-            resolution = (16, 16),
+            resolution = (12, 12),
             u_range = [0, 2 * np.pi],
             v_range = [0, np.pi],
             fill_opacity = 0.5
         ).set_fill_by_checkerboard(PURPLE, PURPLE)
 
         stars = Mobject1D()
-        star_positions = []
-        n_U = 8
-        n_V = 8
-        for n in range(n_U):
-            for m in range(n_V):
-                U = n / n_U
-                V = m / n_V
-                u = 2 * np.pi * U
-                v = np.pi * V
-                star_positions.append([u, v])
-        stars.add_points(
-            [
-                [np.cos(position[0]) * np.sin(position[1]), 
-                np.sin(position[0]) * np.sin(position[1]),
-                np.cos(position[1])]
-                for position in star_positions
-            ]
-        )
-
-        # Transformations
-
-        '''
-        v = [0, 0, -1]
-        Lambda = vec_to_boost_3(v)
-        '''
+        n_phis = 6
+        n_thetas = 13
+        phis = np.linspace(0, 2 * np.pi, n_phis, endpoint=False)
+        thetas = np.linspace(np.pi, 0, n_thetas, endpoint=True)
+        
+        for phi in phis:
+            for theta in thetas:
+                x = np.cos(phi) * np.sin(theta)
+                y = np.sin(phi) * np.sin(theta)
+                z = np.cos(theta)
+                stars.add_points([np.array([x, y, z])])
 
         # Animations
 
-        self.add(celestial_sphere, stars)
-        self.play(Rotate(celestial_sphere, angle = np.pi/8, about_point = ORIGIN, rate_func =linear),
-                Rotate(stars, angle = np.pi/8, about_point = ORIGIN, rate_func =linear))
-        self.wait(1)
+        self.play(FadeIn(celestial_sphere))
+        self.add(stars)
+        self.wait()
+
+        self.play(Rotate(celestial_sphere, np.pi/3),
+                Rotate(stars, np.pi/3))
+        self.wait()
+
+        self.remove(stars)
+        self.play(FadeOut(celestial_sphere))
 
 class MobiusTransformationCx(ThreeDScene):
     def construct(self):
