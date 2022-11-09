@@ -9,7 +9,7 @@ Dependencies
 '''
 
 from manim import *
-from utils import *
+from hopf_utils import *
 from lie_utils import *
 import numpy as np
 
@@ -20,8 +20,8 @@ Scenes
 # Stationary scenes
 class S_2(ThreeDScene):
     def construct(self):
-        #Omega = (np.pi/3, np.pi/6)
-        #n = angle_to_3_vec(Omega)
+
+        # Camera
         phi = 75
         theta = 0
         self.set_camera_orientation(phi = phi*DEGREES, theta = theta*DEGREES)
