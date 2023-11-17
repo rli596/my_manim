@@ -22,7 +22,7 @@ class Tractroid(ThreeDScene):
         phi = 75
         theta = 0
         self.set_camera_orientation(phi = phi*DEGREES, theta = theta*DEGREES)
-        self.camera.set_zoom(0.5)
+        self.camera.set_zoom(2)
 
         # Mobjects
         tractroid_mobject = Surface(tractroid, resolution = (16,16), v_range=[0,2 * np.pi], u_range = [-5,5])
@@ -156,7 +156,7 @@ class OneSolitonRibbonSurface(ThreeDScene):
     def construct(self):
         # Camera
         phi = 75
-        theta = 120
+        theta = 150
         self.set_camera_orientation(phi = phi*DEGREES, theta = theta*DEGREES)
 
         # Mobjects
@@ -168,12 +168,12 @@ class OneSolitonRibbonSurface(ThreeDScene):
                                  v_range = [-2, 2],
                                  fill_opacity= 0.5,
                                  resolution = (4 * L,4)).set_fill_by_checkerboard(GREEN, GREEN)
-        ribbon.add(ribbon_surface)
+        #ribbon.add(ribbon_surface)
         ribbon_line = ParametricFunction(lambda t: np.array([t, 0, 2]),
                                          t_range = [-L, L],
                                          ).set_color(RED)
         ribbon.add(ribbon_line)
-        for x_value in range(-L + 1, L):
+        for x_value in np.arange(-L + 1, L, 0.2):
             vector = Vector(np.array([0,0,2])).set_x(x_value).set_color(BLUE)
             ribbon.add(vector)
 

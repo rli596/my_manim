@@ -258,7 +258,7 @@ def SL_to_SO(S):
 Testing
 '''
 if __name__ == "__main__":
-    a = complex(1, 0)
+    a = complex(1, 1)
     S = np.array([[1, a],
                   [0, 1]])
     Lambda = SL_to_SO(S)
